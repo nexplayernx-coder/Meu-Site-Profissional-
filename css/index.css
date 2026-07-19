@@ -1,0 +1,14 @@
+
+.hero{padding:160px 0 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center}
+.hero h1{font-size:64px;line-height:0.95;letter-spacing:-2px;margin:20px 0}
+.hero h1 span{background:linear-gradient(90deg,#fff,var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);font-size:18px;line-height:1.6;max-width:520px;margin:20px 0 32px}
+.hero-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:60px}
+.h-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:16px;padding:18px;backdrop-filter:blur(10px);transition:.3s}
+.h-card:hover{transform:translateY(-4px);border-color:rgba(0,209,255,0.4)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero h1{font-size:42px}.hero-cards{grid-template-columns:1fr}}
+.device-mock{position:relative;background:radial-gradient(600px circle at 50% 0%, rgba(0,209,255,0.15), transparent);border:1px solid var(--border);border-radius:24px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+.device-screen{background:linear-gradient(180deg,#0A1931,#05070A);border-radius:16px;height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.device-screen::after{content:'NEX PLAYER';font-weight:900;font-size:48px;letter-spacing:8px;color:rgba(0,209,255,0.08)}
