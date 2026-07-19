@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Planos | NEX PLAYER - Sua diversão. Sem limites.</title>
+<meta name="description" content="NEX PLAYER - Sua diversão sem limites. Entretenimento completo com suporte rápido e instalação simples.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>▶</text></svg>">
+<link rel="stylesheet" href="css/global.css"><link rel="stylesheet" href="css/planos.css">
+</head>
+<body>
+<header><div class="container nav">
+<a href="index.html" class="logo"><span>NEX</span> PLAYER</a>
+<button class="mobile-toggle">☰</button>
+<nav class="nav-links">
+<a href="index.html" class="">Início</a>
+<a href="planos.html" class="active">Planos</a>
+<a href="dispositivos.html" class="">Dispositivos</a>
+<a href="tutoriais.html" class="">Tutoriais</a>
+<a href="sobre.html" class="">Sobre</a>
+<a href="contato.html" class="">Contato</a>
+<a href="planos.html" class="btn-primary" style="padding:10px 18px;font-size:14px">Teste Grátis</a>
+</nav></div></header>
+
+<section class="planos"><div class="container">
+<span class="badge" style="margin:0 auto;display:table">PLANOS PREMIUM</span>
+<h2>Escolha seu plano ideal</h2><p style="text-align:center;color:var(--muted)">Cancele quando quiser • Suporte incluso • Ativação imediata</p>
+<div class="planos-grid">
+<div class="p-card"><h3>Mensal</h3><div class="price">R$ 29,90 <small>/mês</small></div><ul class="benefits"><li>Entretenimento completo</li><li>Suporte via WhatsApp</li><li>Instalação assistida</li><li>Compatível com 1 dispositivo</li></ul><button class="btn-glass" style="width:100%" onclick="openForm('Mensal - R$29,90')">Assinar agora</button></div>
+<div class="p-card popular"><h3>Semestral</h3><div class="price">R$ 139,90 <small>/6 meses</small></div><ul class="benefits"><li>Tudo do Mensal</li><li>Economia de 22%</li><li>Prioridade no suporte</li><li>Compatível com 2 dispositivos</li><li>Teste grátis incluso</li></ul><button class="btn-primary" style="width:100%" onclick="openForm('Semestral - R$139,90')">Assinar agora</button></div>
+<div class="p-card"><h3>Anual</h3><div class="price">R$ 229,90 <small>/ano</small></div><ul class="benefits"><li>Tudo do Semestral</li><li>Economia de 36%</li><li>3 dispositivos simultâneos</li><li>Suporte VIP</li></ul><button class="btn-glass" style="width:100%" onclick="openForm('Anual - R$229,90')">Assinar agora</button></div>
+</div>
+</div></section>
+<div id="modalForm" class="modal"><div class="modal-box">
+<div style="display:flex;justify-content:space-between"><h3>Quase lá! 🚀</h3><span onclick="closeForm()" style="cursor:pointer">✕</span></div>
+<p>Preencha para liberar seu atendimento no WhatsApp • Plano: <strong id="planoNome"></strong></p>
+<label>Nome completo *</label><input id="fNome" class="input" placeholder="Seu nome"><div id="eNome" class="error">Digite seu nome completo</div>
+<label>Gmail *</label><input id="fEmail" class="input" placeholder="seuemail@gmail.com"><div id="eEmail" class="error">Gmail inválido</div>
+<label>Escolha seu dispositivo *</label>
+<select id="fDisp" class="input">
+<option value="">Selecione...</option>
+<optgroup label="LG"><option>LG WebOS</option><option>LG Smart TV</option><option>Outro modelo LG</option></optgroup>
+<optgroup label="Samsung"><option>Samsung Tizen</option><option>Outro modelo Samsung</option></optgroup>
+<optgroup label="TCL"><option>TCL Android TV</option><option>TCL Smart TV</option></optgroup>
+<optgroup label="Outras TVs"><option>Philips</option><option>Sony</option><option>AOC</option><option>Semp</option><option>Roku TV</option><option>Outro</option></optgroup>
+<optgroup label="Celular"><option>Android</option><option>iPhone iOS</option></optgroup>
+<optgroup label="TV BOX"><option>Fire TV Stick</option><option>Android TV Box</option><option>Mi Box</option><option>Outro</option></optgroup>
+<option value="outro-custom">Outros - Digitar modelo</option>
+</select><div id="eDisp" class="error">Selecione um dispositivo</div>
+<div id="customWrap" style="display:none"><label>Digite seu modelo</label><input id="fCustom" class="input" placeholder="Ex: Philco PTV..."><div id="eCustom" class="error">Digite o modelo</div></div>
+<label style="display:flex;gap:8px;margin:12px 0"><input type="checkbox" id="fTeste"> Deseja fazer teste grátis?</label>
+<button id="btnZap" class="btn-primary" style="width:100%;opacity:0.4" disabled onclick="sendZap()">Liberar WhatsApp →</button>
+<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px">Seus dados são protegidos • LGPD</p>
+</div></div>
+
+<a class="whatsapp-float" href="https://wa.me/5535991148346" target="_blank" aria-label="WhatsApp">💬</a>
+<script src="js/main.js"></script>
+<script src="js/formulario.js"></script>
+</body></html>
