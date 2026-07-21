@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NEX PLAYER V5 | Catálogo Completo</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* === NEX PLAYER V5 - CATALOGO - RECONSTRUÇÃO TOTAL === 
+     Leve, sem canvas, só CSS glow
+  */
+  :root{
+    --bg:#080000;
+    --card:#0D0000;
+    --card2:#140202;
+    --red:#8B0000;
+    --red2:#C1121F;
+    --red-glow:0 0 20px rgba(193,18,31,.35);
+    --red-glow-strong:0 0 30px rgba(193,18,31,.55);
+    --text:#FFFFFF;
+    --text2:#D0C0C0;
+    --border:rgba(139,0,0,.25);
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  
+  /* HEADER igual padrão V5 */
+  .header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(8,0,0,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:14px 20px;
+  }
+  .header-inner{
+    max-width:1240px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:700;font-size:18px;letter-spacing:.5px;
+  }
+  .logo-mark{
+    width:32px;height:32px;border-radius:8px;
+    background:linear-gradient(135deg,var(--red),var(--red2));
+    box-shadow:var(--red-glow);
+    display:grid;place-items:center;
+    font-weight:700;font-size:16px;
+  }
+  .logo span b{color:var(--red2)}
+  .nav{
+    display:flex;gap:10px;align-items:center;
+  }
+  .btn{
+    padding:9px 18px;border-radius:999px;
+    font-size:14px;font-weight:500;
+    border:1px solid var(--border);
+    transition:.2s;
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    white-space:nowrap;
+  }
+  .btn-ghost{
+    background:transparent;color:var(--text2);
+  }
+  .btn-ghost:hover{color:var(--text);border-color:var(--red)}
+  .btn-primary{
+    background:linear-gradient(135deg,var(--red),var(--red2));
+    color:#fff;border-color:transparent;
+    box-shadow:var(--red-glow);
+  }
+  .btn-primary:hover{box-shadow:var(--red-glow-strong);transform:translateY(-1px)}
+
+  /* MAIN */
+  .wrap{max-width:1240px;margin:0 auto;padding:28px 20px 60px}
+  
+  /* TOPO CATÁLOGO */
+  .top{
+    display:flex;flex-wrap:wrap;gap:16px;
+    align-items:flex-end;justify-content:space-between;
+    margin-bottom:22px;
+  }
+  .title h1{font-size:28px;font-weight:700;line-height:1.1}
+  .title p{color:var(--text2);font-size:14px;margin-top:6px;font-weight:300}
+  .search-wrap{
+    flex:1 1 280px;max-width:380px;position:relative;
+  }
+  .search-wrap input{
+    width:100%;padding:12px 16px 12px 42px;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:999px;color:var(--text);font-family:inherit;
+    font-size:14px;outline:none;
+    transition:.2s;
+  }
+  .search-wrap input::placeholder{color:var(--text2);opacity:.7}
+  .search-wrap input:focus{border-color:var(--red2);box-shadow:var(--red-glow)}
+  .search-icon{
+    position:absolute;left:14px;top:50%;transform:translateY(-50%);
+    color:var(--text2);pointer-events:none;
+  }
+
+  /* TABS FILTRO */
+  .tabs{
+    display:flex;gap:8px;overflow:auto;
+    padding-bottom:14px;margin-bottom:18px;
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    padding:8px 18px;border-radius:999px;
+    background:var(--card);border:1px solid var(--border);
+    color:var(--text2);font-size:14px;font-weight:500;
+    cursor:pointer;white-space:nowrap;transition:.2s;
+    user-select:none;
+  }
+  .tab:hover{color:var(--text);border-color:var(--red)}
+  .tab.active{
+    background:linear-gradient(135deg,var(--red),var(--red2));
+    color:#fff;border-color:transparent;
+    box-shadow:var(--red-glow);
+  }
+
+  /* SECOES */
+  .section-label{
+    margin:26px 0 12px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .section-label h2{font-size:18px;font-weight:600}
+  .section-label .line{flex:1;height:1px;background:var(--border)}
+  .section-label .count{
+    font-size:12px;color:var(--text2);
+    background:var(--card);border:1px solid var(--border);
+    padding:4px 10px;border-radius:999px;
+  }
+
+  /* GRID FILMES/SERIES */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+  @media(min-width:520px){.grid{grid-template-columns:repeat(3,1fr);gap:14px}}
+  @media(min-width:860px){.grid{grid-template-columns:repeat(4,1fr);gap:16px}}
+  @media(min-width:1100px){.grid{grid-template-columns:repeat(6,1fr)}}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:.22s;
+  }
+  .card:hover{transform:translateY(-3px);border-color:rgba(193,18,31,.45);box-shadow:var(--red-glow)}
+
+  .cover{
+    aspect-ratio:2/3;position:relative;overflow:hidden;
+    background:var(--card2);
+  }
+  .cover img{
+    width:100%;height:100%;object-fit:cover;
+    display:block;transition:.3s;
+  }
+  .card:hover .cover img{transform:scale(1.04)}
+  /* overlay leve CSS apenas */
+  .overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(8,0,0,.9) 10%,transparent 60%);
+    opacity:0;transition:.22s;
+    display:flex;align-items:flex-end;justify-content:center;
+    padding:12px;
+  }
+  .card:hover .overlay{opacity:1}
+  /* no touch, mostrar sempre botão? mobile first: mostrar overlay discreto abaixo? vamos manter visível no hover e foco */
+  .btn-watch{
+    width:100%;padding:9px 12px;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--red),var(--red2));
+    color:#fff;font-size:13px;font-weight:600;
+    text-align:center;border:0;
+    box-shadow:var(--red-glow);
+    display:inline-block;
+  }
+
+  .info{padding:10px 10px 12px}
+  .info h3{
+    font-size:13px;font-weight:500;line-height:1.3;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    color:var(--text);
+  }
+  .info span{font-size:11px;color:var(--text2);font-weight:300}
+
+  /* FUTEBOL CARDS */
+  .grid-futebol{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  @media(min-width:700px){.grid-futebol{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1100px){.grid-futebol{grid-template-columns:repeat(3,1fr)}}
+
+  .jogo{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:14px 14px 12px;
+    display:flex;flex-direction:column;gap:12px;
+    transition:.2s;
+  }
+  .jogo:hover{border-color:rgba(193,18,31,.45);box-shadow:var(--red-glow)}
+  .jogo-top{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:11px;color:var(--text2);
+  }
+  .live{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(193,18,31,.15);
+    border:1px solid rgba(193,18,31,.35);
+    color:#ff6b6b;padding:3px 8px;border-radius:999px;
+    font-weight:600;font-size:10px;letter-spacing:.5px;
+    /* glow só CSS */
+    box-shadow:0 0 12px rgba(193,18,31,.25);
+  }
+  .live-dot{
+    width:6px;height:6px;border-radius:50%;background:#ff2a2a;
+    box-shadow:0 0 8px #ff2a2a;
+  }
+  .jogo-times{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .time{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    flex:1;
+  }
+  .time-logo{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--card2);border:1px solid var(--border);
+    display:grid;place-items:center;
+    font-size:14px;font-weight:700;color:var(--text2);
+  }
+  .time b{font-size:13px;font-weight:600;text-align:center;line-height:1.2}
+  .vs{color:var(--text2);font-size:12px;font-weight:300}
+  .jogo-acao{
+    display:flex;gap:8px;
+  }
+  .jogo-acao .btn{flex:1;font-size:13px;padding:9px}
+
+  /* EMPTY */
+  .empty{
+    padding:30px 20px;text-align:center;
+    color:var(--text2);font-size:14px;
+    border:1px dashed var(--border);
+    border-radius:var(--radius);
+    background:rgba(13,0,0,.6);
+  }
+
+  /* FOOTER INFO */
+  .foot{
+    margin-top:40px;padding-top:18px;
+    border-top:1px solid var(--border);
+    display:flex;flex-wrap:wrap;gap:10px;
+    justify-content:space-between;align-items:center;
+    color:var(--text2);font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="NEX PLAYER V5">
+      <div class="logo-mark">N</div>
+      <span>NEX <b>PLAYER</b> V5</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="btn btn-ghost">Início</a>
+      <a href="https://wa.me/5535991148346" target="_blank" class="btn btn-ghost">Suporte</a>
+      <a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="btn btn-primary">Entrar no Grupo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- TOPO -->
+  <div class="top">
+    <div class="title">
+      <h1>Catálogo Completo</h1>
+      <p>Filmes, futebol ao vivo e séries — atualizado diariamente</p>
+    </div>
+    <label class="search-wrap" aria-label="Buscar no catálogo">
+      <span class="search-icon">⌕</span>
+      <input id="busca" type="search" placeholder="Buscar filme, time, série..." autocomplete="off"/>
+    </label>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs" id="tabs" role="tablist">
+    <button class="tab active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+    <button class="tab" data-filter="filmes" role="tab">Filmes</button>
+    <button class="tab" data-filter="futebol" role="tab">Futebol</button>
+    <button class="tab" data-filter="series" role="tab">Séries</button>
+  </div>
+
+  <!-- SEÇÃO FILMES -->
+  <div class="section-wrap" data-section="filmes">
+    <div class="section-label">
+      <h2>Filmes</h2><div class="line"></div><span class="count" id="count-filmes">12</span>
+    </div>
+    <div class="grid" id="grid-filmes"></div>
+  </div>
+
+  <!-- SEÇÃO FUTEBOL -->
+  <div class="section-wrap" data-section="futebol">
+    <div class="section-label">
+      <h2>Futebol Ao Vivo</h2><div class="line"></div><span class="count" id="count-futebol"></span>
+    </div>
+    <div class="grid-futebol" id="grid-futebol"></div>
+  </div>
+
+  <!-- SEÇÃO SÉRIES -->
+  <div class="section-wrap" data-section="series">
+    <div class="section-label">
+      <h2>Séries</h2><div class="line"></div><span class="count" id="count-series">6</span>
+    </div>
+    <div class="grid" id="grid-series"></div>
+  </div>
+
+  <div id="empty" class="empty" style="display:none;margin-top:18px">Nenhum resultado para sua busca.</div>
+
+  <div class="foot">
+    <span>NEX PLAYER V5 • Catálogo leve, sem travamentos • Só CSS glow</span>
+    <span style="display:flex;gap:10px">
+      <a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" style="color:var(--text2);text-decoration:underline">Grupo</a>
+      <a href="https://wa.me/5535991148346" target="_blank" style="color:var(--text2);text-decoration:underline">Suporte</a>
+    </span>
+  </div>
+</main>
+
+<script>
+/* ===== NEX PLAYER V5 - CATALOGO JS LEVE =====
+   - Sem loops pesados
+   - filtra por busca e tabs
+   - dados exemplo editáveis em data/filmes.json
+*/
+const GRUPO_LINK = "https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28";
+
+// --- DADOS EXEMPLO (fallback se json não carregar) ---
+const filmesFallback = [
+  {nome:"O Protetor Final", capa:"https://picsum.photos/seed/filme1/300/450", ano:"2024", tipo:"filmes"},
+  {nome:"Cidade Sombria", capa:"https://picsum.photos/seed/filme2/300/450", ano:"2023", tipo:"filmes"},
+  {nome:"Horizonte Perdido", capa:"https://picsum.photos/seed/filme3/300/450", ano:"2024", tipo:"filmes"},
+  {nome:"Legado de Fogo", capa:"https://picsum.photos/seed/filme4/300/450", ano:"2022", tipo:"filmes"},
+  {nome:"Noite Sem Fim", capa:"https://picsum.photos/seed/filme5/300/450", ano:"2024", tipo:"filmes"},
+  {nome:"Operação Tempestade", capa:"https://picsum.photos/seed/filme6/300/450", ano:"2023", tipo:"filmes"},
+  {nome:"O Último Código", capa:"https://picsum.photos/seed/filme7/300/450", ano:"2024", tipo:"filmes"},
+  {nome:"Fronteira Final", capa:"https://picsum.photos/seed/filme8/300/450", ano:"2023", tipo:"filmes"},
+  {nome:"Vingança Silenciosa", capa:"https://picsum.photos/seed/filme9/300/450", ano:"2024", tipo:"filmes"},
+  {nome:"Ecos do Amanhã", capa:"https://picsum.photos/seed/filme10/300/450", ano:"2023", tipo:"filmes"},
+  {nome:"Sob a Mira", capa:"https://picsum.photos/seed/filme11/300/450", ano:"2024", tipo:"filmes"},
+  {nome:"Linha Vermelha", capa:"https://picsum.photos/seed/filme12/300/450", ano:"2022", tipo:"filmes"}
+];
+const seriesFallback = [
+  {nome:"Império Oculto S1", capa:"https://picsum.photos/seed/serie1/300/450", ano:"2024", tipo:"series"},
+  {nome:"Código Negro", capa:"https://picsum.photos/seed/serie2/300/450", ano:"2023", tipo:"series"},
+  {nome:"La Casa de Sombras", capa:"https://picsum.photos/seed/serie3/300/450", ano:"2024", tipo:"series"},
+  {nome:"The Last Zone", capa:"https://picsum.photos/seed/serie4/300/450", ano:"2024", tipo:"series"},
+  {nome:"Patrulha Noturna", capa:"https://picsum.photos/seed/serie5/300/450", ano:"2023", tipo:"series"},
+  {nome:"Alerta Vermelho", capa:"https://picsum.photos/seed/serie6/300/450", ano:"2024", tipo:"series"}
+];
+const jogosFallback = [
+  {casa:"Flamengo", fora:"Palmeiras", hora:"21:30", camp:"Brasileirão"},
+  {casa:"Real Madrid", fora:"Barcelona", hora:"17:00", camp:"La Liga"},
+  {casa:"Man City", fora:"Arsenal", hora:"13:30", camp:"Premier League"},
+  {casa:"Brasil", fora:"Argentina", hora:"20:00", camp:"Eliminatórias"},
+  {casa:"Corinthians", fora:"São Paulo", hora:"19:00", camp:"Paulistão"},
+  {casa:"PSG", fora:"Marseille", hora:"15:45", camp:"Ligue 1"}
+];
+
+let DATA_FILMES = [...filmesFallback];
+let DATA_SERIES = [...seriesFallback];
+let DATA_JOGOS = [...jogosFallback];
+
+// tenta carregar JSON externo editável
+fetch("./data/filmes.json").then(r=>r.ok?r.json():null).then(j=>{
+  if(j && Array.isArray(j)){ 
+    // filtra só válidos
+    DATA_FILMES = j.filter(x=>x.nome && x.capa).map(x=>({...x,tipo:x.tipo||"filmes",ano:x.ano||"2024"}));
+    if(!DATA_FILMES.length) DATA_FILMES = filmesFallback;
+    render();
+  }
+}).catch(()=>{});
+
+const $ = s => document.querySelector(s);
+const gridFilmes = $("#grid-filmes");
+const gridSeries = $("#grid-series");
+const gridFutebol = $("#grid-futebol");
+const buscaInput = $("#busca");
+const emptyEl = $("#empty");
+
+// render card filme/serie - template string leve
+function cardHTML(item){
+  // encode para evitar XSS simples
+  const nome = item.nome.replace(/</g,"&lt;");
+  return `
+  <article class="card" data-nome="${nome.toLowerCase()}" data-tipo="${item.tipo}">
+    <div class="cover">
+      <img loading="lazy" src="${item.capa}" alt="${nome}" width="300" height="450">
+      <div class="overlay">
+        <a class="btn-watch" href="${GRUPO_LINK}" target="_blank">Quero assistir</a>
+      </div>
+    </div>
+    <div class="info">
+      <h3 title="${nome}">${nome}</h3>
+      <span>${item.ano||""} • ${item.tipo==="series"?"Série":"Filme"}</span>
+    </div>
+  </article>`;
+}
+
+function jogoHTML(j){
+  const casa = j.casa.replace(/</g,"&lt;");
+  const fora = j.fora.replace(/</g,"&lt;");
+  const termo = `${casa} ${fora} ${j.camp}`.toLowerCase();
+  return `
+  <article class="jogo" data-nome="${termo}" data-tipo="futebol">
+    <div class="jogo-top">
+      <span>${j.camp}</span>
+      <span><span class="live"><span class="live-dot"></span> AO VIVO</span> • ${j.hora}</span>
+    </div>
+    <div class="jogo-times">
+      <div class="time"><div class="time-logo">${casa[0]}</div><b>${casa}</b></div>
+      <div class="vs">vs</div>
+      <div class="time"><div class="time-logo">${fora[0]}</div><b>${fora}</b></div>
+    </div>
+    <div class="jogo-acao">
+      <a class="btn btn-ghost" href="https://wa.me/5535991148346" target="_blank">Suporte</a>
+      <a class="btn btn-primary" href="${GRUPO_LINK}" target="_blank">Quero assistir</a>
+    </div>
+  </article>`;
+}
+
+function render(){
+  // render sem loop aninhado pesado
+  gridFilmes.innerHTML = DATA_FILMES.map(cardHTML).join("");
+  gridSeries.innerHTML = DATA_SERIES.map(cardHTML).join("");
+  gridFutebol.innerHTML = DATA_JOGOS.map(jogoHTML).join("");
+  $("#count-filmes").textContent = DATA_FILMES.length;
+  $("#count-series").textContent = DATA_SERIES.length;
+  $("#count-futebol").textContent = DATA_JOGOS.length;
+  filter(); // aplica filtro atual
+}
+
+// FILTRO leve: busca + tabs
+let activeTab = "todos";
+const tabsEl = document.getElementById("tabs");
+tabsEl.addEventListener("click", e=>{
+  const b = e.target.closest(".tab");
+  if(!b) return;
+  activeTab = b.dataset.filter;
+  tabsEl.querySelectorAll(".tab").forEach(t=>{
+    t.classList.toggle("active", t===b);
+    t.setAttribute("aria-selected", t===b ? "true" : "false");
+  });
+  filter();
+});
+
+buscaInput.addEventListener("input", filter);
+
+function filter(){
+  const q = (buscaInput.value||"").trim().toLowerCase();
+  const sections = document.querySelectorAll(".section-wrap");
+  let visibleTotal = 0;
+
+  // controla secções por tab
+  sections.forEach(sec=>{
+    const type = sec.dataset.section;
+    const showByTab = (activeTab==="todos" || activeTab===type);
+    sec.style.display = showByTab ? "" : "none";
+  });
+
+  // filtra cards dentro de secções visíveis
+  document.querySelectorAll(".card, .jogo").forEach(el=>{
+    const parentSec = el.closest(".section-wrap");
+    const parentVisible = parentSec && parentSec.style.display !== "none";
+    if(!parentVisible){ el.style.display="none"; return; }
+    const nome = el.dataset.nome||"";
+    const match = !q || nome.includes(q);
+    el.style.display = match ? "" : "none";
+    if(match) visibleTotal++;
+  });
+
+  emptyEl.style.display = visibleTotal ? "none" : "block";
+}
+
+// init
+render();
+</script>
+</body>
+</html>

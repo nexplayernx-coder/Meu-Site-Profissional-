@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutoriais - NEX PLAYER V5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* NEX PLAYER V5 - TUTORIAIS - RECONSTRUÇÃO TOTAL - ULTRA LEVE */
+:root{
+  --bg:#080000;
+  --card:#0D0000;
+  --card2:#140000;
+  --red:#8B0000;
+  --red2:#C1121F;
+  --red-glow:rgba(193,18,31,0.25);
+  --text:#FFFFFF;
+  --text2:#D0C0C0;
+  --border:rgba(139,0,0,0.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  min-height:100vh;
+}
+/* HEADER */
+.header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(8,0,0,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:16px 20px;
+}
+.header-inner{
+  max-width:980px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{
+  font-weight:700;font-size:20px;letter-spacing:0.5px;
+  display:flex;align-items:center;gap:10px;
+}
+.logo span{color:var(--red2)}
+.logo-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--red2);
+  box-shadow:0 0 12px var(--red2),0 0 24px var(--red-glow);
+  display:inline-block;
+}
+.header-links{display:flex;gap:10px}
+.btn-small{
+  padding:8px 16px;border-radius:999px;
+  font-size:13px;font-weight:600;text-decoration:none;
+  border:1px solid var(--border);
+  color:var(--text2);transition:.2s;
+}
+.btn-small:hover{border-color:var(--red2);color:var(--text);box-shadow:0 0 12px var(--red-glow)}
+.btn-small.primary{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* MAIN */
+.main{max-width:980px;margin:0 auto;padding:28px 20px 48px}
+.title{
+  font-size:clamp(28px,5vw,42px);font-weight:700;letter-spacing:-0.5px;
+  margin-bottom:8px;
+}
+.title b{color:var(--red2);text-shadow:0 0 20px var(--red-glow)}
+.subtitle{color:var(--text2);font-size:16px;font-weight:300;margin-bottom:28px}
+
+/* TABS - leve, sem JS pesado */
+.tabs-wrap{
+  display:flex;gap:8px;overflow:auto;
+  padding-bottom:6px;margin-bottom:24px;
+  scrollbar-width:none;
+}
+.tabs-wrap::-webkit-scrollbar{display:none}
+.tab-btn{
+  white-space:nowrap;
+  padding:12px 20px;border-radius:999px;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--text2);font-family:inherit;font-size:14px;font-weight:500;
+  cursor:pointer;transition:.2s;
+}
+.tab-btn:hover{border-color:var(--red);color:var(--text)}
+.tab-btn.active{
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:#fff;border-color:var(--red2);
+  box-shadow:0 0 18px var(--red-glow),0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  display:none;
+  animation:fadeIn .3s ease;
+}
+.card.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.video-box{
+  position:relative;
+  aspect-ratio:16/9;
+  background:var(--card2);
+  border-bottom:1px solid var(--border);
+}
+.video-box iframe{
+  width:100%;height:100%;border:0;display:block;
+}
+.video-badge{
+  position:absolute;top:14px;left:14px;
+  background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);
+  border:1px solid var(--border);
+  padding:6px 12px;border-radius:999px;
+  font-size:11px;font-weight:600;letter-spacing:0.5px;
+  color:var(--text2);
+}
+
+.card-body{padding:22px 22px 24px}
+
+.card-body h3{
+  font-size:18px;font-weight:600;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.card-body h3::before{
+  content:'';width:3px;height:18px;border-radius:99px;
+  background:var(--red2);box-shadow:0 0 10px var(--red-glow);
+  display:inline-block;
+}
+
+.steps{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.step{
+  display:flex;gap:14px;
+  background:var(--card2);
+  border:1px solid transparent;
+  border-radius:14px;
+  padding:14px;
+  transition:.2s;
+}
+.step:hover{border-color:var(--border)}
+.step-num{
+  width:28px;height:28px;min-width:28px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:#fff;font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 12px var(--red-glow);
+}
+.step p{color:var(--text2);font-size:14px;font-weight:400;line-height:1.5}
+.step p strong{color:var(--text);font-weight:600}
+
+/* ACTIONS */
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{
+  padding:13px 22px;border-radius:999px;
+  font-family:inherit;font-size:14px;font-weight:600;
+  cursor:pointer;text-decoration:none;display:inline-flex;
+  align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--border);transition:.2s;
+}
+.btn-copy{
+  background:var(--card2);color:var(--text);
+}
+.btn-copy:hover{border-color:var(--text2);box-shadow:0 0 14px rgba(255,255,255,0.06)}
+.btn-support{
+  background:var(--red);border-color:var(--red);
+  color:#fff;
+}
+.btn-support:hover{
+  background:var(--red2);border-color:var(--red2);
+  box-shadow:0 0 18px var(--red-glow);
+}
+.btn-group{
+  background:transparent;color:var(--text2);
+}
+.btn-group:hover{color:#fff;border-color:var(--red2)}
+
+/* TOAST */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--card2);border:1px solid var(--border);
+  color:var(--text);padding:12px 20px;border-radius:999px;
+  font-size:13px;font-weight:500;
+  opacity:0;pointer-events:none;transition:.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6),0 0 20px var(--red-glow);
+  z-index:99;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.footer{
+  text-align:center;padding:32px 20px;
+  color:var(--text2);font-size:12px;opacity:.7;
+  border-top:1px solid var(--border);margin-top:24px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><i class="logo-dot"></i> NEX <span>PLAYER</span> V5</div>
+    <div class="header-links">
+      <a class="btn-small" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">Grupo</a>
+      <a class="btn-small primary" href="https://wa.me/5535991148346" target="_blank" rel="noopener">Suporte</a>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <h1 class="title">Tutoriais de <b>Instalação</b></h1>
+  <p class="subtitle">Escolha seu aparelho abaixo. Vídeo + passos simples. Tudo funciona em menos de 2 minutos.</p>
+
+  <!-- ABAS -->
+  <div class="tabs-wrap" role="tablist">
+    <button class="tab-btn active" data-tab="tvbox" role="tab">📺 TV Box / Fire Stick</button>
+    <button class="tab-btn" data-tab="smarttv" role="tab">📱 Smart TV Samsung / LG</button>
+    <button class="tab-btn" data-tab="android" role="tab">🤖 Android</button>
+    <button class="tab-btn" data-tab="iphone" role="tab">💻 iPhone / PC</button>
+  </div>
+
+  <!-- CONTEÚDO ABA 1 -->
+  <section class="card active" id="tab-tvbox" role="tabpanel">
+    <div class="video-box">
+      <span class="video-badge">TUTORIAL TV BOX • 01:42</span>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial TV Box / Fire Stick - NEX PLAYER V5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="card-body">
+      <h3>Como instalar na TV Box / Fire Stick</h3>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><p><strong>Baixe o app</strong> - Na sua TV Box abra o Downloader e insira o código que está no botão abaixo. Aguarde instalar.</p></div>
+        <div class="step"><div class="step-num">2</div><p><strong>Ative o acesso</strong> - Abra o app, cole o código de ativação no campo principal. Clique em conectar.</p></div>
+        <div class="step"><div class="step-num">3</div><p><strong>Pronto</strong> - Seu conteúdo já vai carregar automaticamente. Se travar, limpe o cache em Configurações > Apps.</p></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-copy" data-copy="889977">📋 Copiar código: 889977</button>
+        <a class="btn btn-support" href="https://wa.me/5535991148346" target="_blank" rel="noopener">💬 Suporte rápido</a>
+        <a class="btn btn-group" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">👥 Entrar no Grupo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO ABA 2 -->
+  <section class="card" id="tab-smarttv" role="tabpanel">
+    <div class="video-box">
+      <span class="video-badge">TUTORIAL SMART TV • 01:55</span>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial Smart TV Samsung LG - NEX PLAYER V5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="card-body">
+      <h3>Como instalar na Smart TV Samsung / LG</h3>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><p><strong>Abra a loja</strong> - Na sua TV entre na loja de apps (Samsung Store ou LG Store) e procure pelo player indicado no grupo.</p></div>
+        <div class="step"><div class="step-num">2</div><p><strong>Insira seu código</strong> - Ao abrir, o app pedirá um código. Use o código copiável abaixo e confirme.</p></div>
+        <div class="step"><div class="step-num">3</div><p><strong>Aproveite</strong> - Reinicie a TV após a primeira configuração para garantir fluidez máxima.</p></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-copy" data-copy="SMART-NEX-V5">📋 Copiar código: SMART-NEX-V5</button>
+        <a class="btn btn-support" href="https://wa.me/5535991148346" target="_blank" rel="noopener">💬 Suporte rápido</a>
+        <a class="btn btn-group" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">👥 Entrar no Grupo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO ABA 3 -->
+  <section class="card" id="tab-android" role="tabpanel">
+    <div class="video-box">
+      <span class="video-badge">TUTORIAL ANDROID • 01:12</span>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial Android - NEX PLAYER V5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="card-body">
+      <h3>Como instalar no Android (Celular / Tablet)</h3>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><p><strong>Baixe o APK</strong> - Clique no botão copiar e use o link que enviamos no grupo. Permita instalar de fontes desconhecidas.</p></div>
+        <div class="step"><div class="step-num">2</div><p><strong>Libere o acesso</strong> - Abra o aplicativo, cole seu código pessoal e aguarde a sincronização automática.</p></div>
+        <div class="step"><div class="step-num">3</div><p><strong>Ative o modo leve</strong> - Dentro do app vá em Configurações e ative economia de dados para rodar liso até no 4G.</p></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-copy" data-copy="ANDROID-2025-V5">📋 Copiar código: ANDROID-2025-V5</button>
+        <a class="btn btn-support" href="https://wa.me/5535991148346" target="_blank" rel="noopener">💬 Suporte rápido</a>
+        <a class="btn btn-group" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">👥 Entrar no Grupo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO ABA 4 -->
+  <section class="card" id="tab-iphone" role="tabpanel">
+    <div class="video-box">
+      <span class="video-badge">TUTORIAL IPHONE / PC • 02:05</span>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial iPhone e PC - NEX PLAYER V5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="card-body">
+      <h3>Como instalar no iPhone / PC (Windows / Mac)</h3>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><p><strong>iPhone:</strong> Baixe o app pela App Store (link no grupo). No PC acesse o painel web pelo navegador.</p></div>
+        <div class="step"><div class="step-num">2</div><p><strong>Login universal</strong> - Use o mesmo código em qualquer aparelho. Copie e cole, sem digitar tudo.</p></div>
+        <div class="step"><div class="step-num">3</div><p><strong>Sincronizado</strong> - Seu acesso fica salvo e pronto para uso. Precisou de ajuda? Chame o suporte.</p></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-copy" data-copy="https://painel.nexplayerv5.com">📋 Copiar link do painel</button>
+        <a class="btn btn-support" href="https://wa.me/5535991148346" target="_blank" rel="noopener">💬 Suporte rápido</a>
+        <a class="btn btn-group" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">👥 Entrar no Grupo</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">NEX PLAYER V5 • Todos os tutoriais atualizados • Suporte via WhatsApp</footer>
+</main>
+
+<div class="toast" id="toast">Copiado com sucesso!</div>
+
+<script>
+/* JS ULTRA LEVE - SEM LIBS, SEM LOOP PESADO */
+
+// Troca de abas - mobile first, 1 listener
+const tabBtns = document.querySelectorAll('.tab-btn');
+const cards = document.querySelectorAll('.card');
+
+tabBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target = btn.dataset.tab;
+    // ativa btn
+    tabBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    // ativa card
+    cards.forEach(c=>c.classList.remove('active'));
+    document.getElementById('tab-'+target).classList.add('active');
+    // scroll suave no mobile
+    if(window.innerWidth < 720){
+      document.getElementById('tab-'+target).scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+});
+
+// Copiar código - clipboard leve
+const toast = document.getElementById('toast');
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),2200);
+}
+document.querySelectorAll('[data-copy]').forEach(b=>{
+  b.addEventListener('click', async ()=>{
+    const code = b.getAttribute('data-copy');
+    try{
+      await navigator.clipboard.writeText(code);
+      showToast('✅ Código copiado: ' + code);
+    }catch(e){
+      // fallback
+      const inp = document.createElement('input');
+      inp.value = code;
+      document.body.appendChild(inp);
+      inp.select();
+      document.execCommand('copy');
+      inp.remove();
+      showToast('✅ Código copiado: ' + code);
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NEX PLAYER V5 - Missões da Semana</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ===== RESET & VARS V5 ===== */
+:root{
+  --bg:#080000;
+  --card:#0D0000;
+  --card2:#140000;
+  --red:#8B0000;
+  --red2:#C1121F;
+  --text:#FFFFFF;
+  --text2:#D0C0C0;
+  --green:#00E676;
+  --green-bg:rgba(0,230,118,0.12);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* glow sutil só css */
+body::before{
+  content:'';
+  position:fixed;top:-20%;left:50%;transform:translateX(-50%);
+  width:800px;height:600px;
+  background:radial-gradient(ellipse, rgba(193,18,31,0.18) 0%, transparent 70%);
+  pointer-events:none;z-index:0;
+}
+a{text-decoration:none;color:inherit}
+
+/* ===== HEADER ===== */
+.header{
+  position:relative;z-index:1;
+  padding:24px 16px 12px;
+  max-width:1100px;margin:0 auto;
+}
+.top-nav{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:28px;
+}
+.logo{font-weight:800;font-size:18px;letter-spacing:1px}
+.logo span{color:var(--red2)}
+.nav-links{display:flex;gap:12px}
+.nav-btn{
+  padding:8px 16px;border-radius:999px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:var(--card);color:var(--text2);
+  font-size:13px;font-weight:600;
+  transition:.2s;
+}
+.nav-btn:hover{border-color:var(--red2);color:var(--text)}
+.nav-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:8px 16px 24px;
+  position:relative;z-index:1;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(193,18,31,0.15);
+  border:1px solid rgba(193,18,31,0.3);
+  color:var(--red2);
+  padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:700;letter-spacing:.8px;
+  margin-bottom:16px;
+}
+.badge-dot{
+  width:6px;height:6px;background:var(--green);
+  border-radius:50%;box-shadow:0 0 8px var(--green);
+}
+.hero h1{
+  font-size:clamp(28px,6vw,42px);
+  font-weight:800;line-height:1.05;
+  margin-bottom:10px;
+}
+.hero h1 em{font-style:normal;color:var(--red2)}
+.hero p{color:var(--text2);font-size:15px;max-width:420px;margin:0 auto 22px;line-height:1.5}
+
+/* timer */
+.timer-wrap{
+  display:flex;justify-content:center;gap:10px;
+  margin:0 auto 8px;
+}
+.t-box{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;
+  min-width:68px;padding:10px 8px;
+  text-align:center;
+}
+.t-box strong{
+  display:block;font-size:22px;font-weight:800;
+  color:#fff;line-height:1;
+}
+.t-box span{
+  display:block;margin-top:4px;
+  font-size:10px;font-weight:600;letter-spacing:1px;
+  color:var(--text2);text-transform:uppercase;
+}
+.timer-label{
+  font-size:11px;color:var(--text2);letter-spacing:.5px;
+  margin-top:10px;
+}
+
+/* ===== GRID ===== */
+.main{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:16px 16px 90px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+@media(min-width:600px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}}
+
+/* card */
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);
+  padding:18px 16px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s, border-color .2s;
+}
+.card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(193,18,31,0.35);
+  box-shadow:0 8px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(193,18,31,0.15) inset;
+}
+.card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--red2),transparent);
+  opacity:.4;
+}
+.card-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:14px;
+}
+.icon-box{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg, var(--card2), var(--card));
+  border:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+}
+.reward{
+  background:var(--green-bg);
+  border:1px solid rgba(0,230,118,0.2);
+  color:var(--green);
+  font-size:11px;font-weight:800;
+  padding:5px 10px;border-radius:999px;
+  letter-spacing:.5px;
+}
+.card h3{
+  font-size:16px;font-weight:700;line-height:1.25;
+  margin-bottom:6px;color:var(--text);
+}
+.card p{
+  font-size:13px;color:var(--text2);
+  line-height:1.45;min-height:38px;
+  margin-bottom:14px;
+}
+.btn-resgatar{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--red);
+  border:1px solid rgba(255,255,255,0.06);
+  color:#fff;font-weight:700;font-size:14px;
+  padding:11px;border-radius:12px;
+  cursor:pointer;transition:.2s;
+}
+.btn-resgatar:hover{background:var(--red2);box-shadow:0 0 18px rgba(193,18,31,0.4)}
+.btn-resgatar:active{transform:scale(.98)}
+
+/* destaque principal */
+.card.featured{
+  background:linear-gradient(160deg, var(--card) 0%, #1A0000 100%);
+  border-color:rgba(193,18,31,0.3);
+}
+.card.featured .icon-box{
+  background:var(--red);
+  border-color:var(--red2);
+  box-shadow:0 0 16px rgba(193,18,31,0.35);
+}
+
+/* ===== FOOTER CTA ===== */
+.cta-footer{
+  margin-top:28px;text-align:center;
+  padding:20px;background:var(--card);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);
+}
+.cta-footer h4{font-size:15px;margin-bottom:6px}
+.cta-footer span{font-size:13px;color:var(--text2)}
+.cta-actions{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.btn-outline,.btn-solid{
+  padding:10px 20px;border-radius:999px;
+  font-size:13px;font-weight:700;transition:.2s;
+}
+.btn-outline{border:1px solid rgba(255,255,255,0.12);color:var(--text2);background:transparent}
+.btn-outline:hover{border-color:#fff;color:#fff}
+.btn-solid{background:#fff;color:#000}
+.btn-solid:hover{background:var(--text2)}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="top-nav">
+    <div class="logo">NEX<span>PLAYER</span> V5</div>
+    <div class="nav-links">
+      <a class="nav-btn" href="index.html">Início</a>
+      <a class="nav-btn active" href="missoes.html">Missões</a>
+      <a class="nav-btn" href="https://wa.me/5535991148346" target="_blank">Suporte</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="badge"><div class="badge-dot"></div> SEMANA ATIVA</div>
+  <h1>Missões da Semana<br><em>Ganhe até 30 dias</em></h1>
+  <p>Complete desafios simples, resgate bônus direto no grupo oficial. Sem enrolação.</p>
+
+  <!-- Timer 2 dias -->
+  <div class="timer-wrap" id="timer">
+    <div class="t-box"><strong id="d">02</strong><span>Dias</span></div>
+    <div class="t-box"><strong id="h">00</strong><span>Horas</span></div>
+    <div class="t-box"><strong id="m">00</strong><span>Min</span></div>
+    <div class="t-box"><strong id="s">00</strong><span>Seg</span></div>
+  </div>
+  <div class="timer-label">⏳ Reseta em 2 dias • Novas missões toda segunda</div>
+</section>
+
+<main class="main">
+  <div class="grid">
+    <!-- 1 -->
+    <div class="card featured">
+      <div class="card-top">
+        <div class="icon-box">🤝</div>
+        <div class="reward">+30 DIAS</div>
+      </div>
+      <h3>Indique um amigo pagante</h3>
+      <p>Seu amigo ativa qualquer plano. Você ganha 1 mês extra automático.</p>
+      <a class="btn-resgatar" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Resgatar →</a>
+    </div>
+    <!-- 2 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="icon-box">🎁</div>
+        <div class="reward">13º MÊS GRÁTIS</div>
+      </div>
+      <h3>Plano 12 meses ganhe 13º</h3>
+      <p>Feche anual e leve 13 meses. Melhor custo-benefício NEX.</p>
+      <a class="btn-resgatar" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Resgatar →</a>
+    </div>
+    <!-- 3 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="icon-box">⚡</div>
+        <div class="reward">+7 DIAS</div>
+      </div>
+      <h3>Pague 3 meses +7 dias</h3>
+      <p>Garanta trimestral e ganhe uma semana bônus na hora.</p>
+      <a class="btn-resgatar" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Resgatar →</a>
+    </div>
+    <!-- 4 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="icon-box">🔄</div>
+        <div class="reward">+3 DIAS</div>
+      </div>
+      <h3>Renovação antecipada</h3>
+      <p>Renove 5 dias antes do vencimento e ganhe 3 dias extras.</p>
+      <a class="btn-resgatar" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Resgatar →</a>
+    </div>
+    <!-- 5 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="icon-box">⭐</div>
+        <div class="reward">+2 DIAS</div>
+      </div>
+      <h3>Avalie no Insta</h3>
+      <p>Poste nos stories marcando @nexplayer com print da tela.</p>
+      <a class="btn-resgatar" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Resgatar →</a>
+    </div>
+    <!-- 6 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="icon-box">💬</div>
+        <div class="reward">+48H</div>
+      </div>
+      <h3>Desafio do grupo</h3>
+      <p>Mais ativo da semana no grupo oficial ganha 48h bônus.</p>
+      <a class="btn-resgatar" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Resgatar →</a>
+    </div>
+  </div>
+
+  <div class="cta-footer">
+    <h4>Precisa de ajuda pra resgatar?</h4>
+    <span>Chame no suporte oficial, resposta rápida.</span>
+    <div class="cta-actions">
+      <a class="btn-outline" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Entrar no Grupo</a>
+      <a class="btn-solid" href="https://wa.me/5535991148346" target="_blank">Suporte WhatsApp</a>
+    </div>
+  </div>
+</main>
+
+<script>
+// Timer simples 2 dias - leve, 1 interval, sem loops pesados
+(function(){
+  const STORAGE_KEY='nex_missoes_deadline';
+  let deadline = localStorage.getItem(STORAGE_KEY);
+  if(!deadline){
+    deadline = Date.now() + 2*24*60*60*1000; // 2 dias
+    localStorage.setItem(STORAGE_KEY, deadline);
+  }else{
+    deadline = parseInt(deadline,10);
+    // se expirou, renova
+    if(Date.now() > deadline){
+      deadline = Date.now() + 2*24*60*60*1000;
+      localStorage.setItem(STORAGE_KEY, deadline);
+    }
+  }
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    const diff = deadline - Date.now();
+    if(diff<=0){
+      deadline = Date.now() + 2*24*60*60*1000;
+      localStorage.setItem(STORAGE_KEY, deadline);
+      return;
+    }
+    const d=Math.floor(diff/86400000);
+    const h=Math.floor((diff%86400000)/3600000);
+    const m=Math.floor((diff%3600000)/60000);
+    const s=Math.floor((diff%60000)/1000);
+    document.getElementById('d').textContent=pad(d);
+    document.getElementById('h').textContent=pad(h);
+    document.getElementById('m').textContent=pad(m);
+    document.getElementById('s').textContent=pad(s);
+  }
+  tick();
+  setInterval(tick,1000); // único interval
+})();
+</script>
+</body>
+</html>

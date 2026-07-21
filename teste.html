@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>NEX PLAYER V5 - Teste Grátis até 4 Horas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* NEX PLAYER V5 - RECONSTRUÇÃO TOTAL - SUPER LEVE */
+:root{
+  --bg:#080000;
+  --card:#0D0000;
+  --red:#8B0000;
+  --red2:#C1121F;
+  --red-glow:rgba(193,18,31,0.35);
+  --text:#FFFFFF;
+  --text2:#D0C0C0;
+  --border:rgba(139,0,0,0.35);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* glow sutil apenas css */
+.glow{box-shadow:0 0 30px var(--red-glow), 0 0 60px rgba(139,0,0,0.15)}
+.glow-text{text-shadow:0 0 20px var(--red-glow)}
+
+.container{width:100%;max-width:480px;margin:0 auto;padding:0 18px}
+
+/* HEADER */
+header{
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:10;
+  background:rgba(8,0,0,0.92);
+  backdrop-filter:blur(10px);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:18px;letter-spacing:0.5px}
+.logo span{color:var(--red2)}
+.btn-small{
+  font-size:13px;font-weight:600;padding:8px 14px;border-radius:99px;
+  border:1px solid var(--border);color:var(--text2);text-decoration:none;
+  background:var(--card);transition:.2s
+}
+.btn-small:hover{border-color:var(--red2);color:#fff}
+
+/* HERO */
+.hero{padding:32px 0 18px;text-align:center}
+.badge{
+  display:inline-flex;gap:6px;align-items:center;
+  background:var(--card);border:1px solid var(--border);
+  padding:6px 12px;border-radius:99px;font-size:12px;color:var(--text2);
+  margin-bottom:16px;
+}
+.badge i{width:6px;height:6px;background:#00FF88;border-radius:50%;display:inline-block;box-shadow:0 0 8px #00FF88}
+h1{
+  font-size:32px;line-height:1.05;font-weight:800;letter-spacing:-0.5px;
+}
+h1 em{font-style:normal;color:var(--red2)}
+.hero p{color:var(--text2);font-size:15px;margin-top:12px;font-weight:300}
+
+/* CARDS */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  margin-top:20px;
+}
+.card-title{font-size:18px;font-weight:700;margin-bottom:4px}
+.card-sub{font-size:13px;color:var(--text2);margin-bottom:18px}
+
+/* FORM - RADIO TEMPO */
+.tempo-group{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+.tempo-radio{position:relative}
+.tempo-radio input{position:absolute;opacity:0;width:0;height:0}
+.tempo-radio label{
+  display:flex;align-items:center;justify-content:center;
+  height:44px;border-radius:12px;
+  border:1px solid var(--border);background:rgba(255,255,255,0.02);
+  color:var(--text2);font-weight:600;font-size:14px;cursor:pointer;transition:.2s
+}
+.tempo-radio input:checked + label{
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  border-color:var(--red2);color:#fff;
+  box-shadow:0 0 18px var(--red-glow)
+}
+
+/* INPUTS */
+.field{margin-bottom:12px}
+.field label{font-size:12px;color:var(--text2);margin-bottom:6px;display:block;letter-spacing:.5px;text-transform:uppercase}
+.input{
+  width:100%;height:48px;border-radius:12px;
+  border:1px solid var(--border);background:rgba(255,255,255,0.03);
+  color:var(--text);font-family:inherit;font-size:15px;
+  padding:0 14px;outline:none;transition:.2s
+}
+.input:focus{border-color:var(--red2);box-shadow:0 0 0 3px rgba(193,18,31,0.18)}
+select.input{appearance:none;background-image:linear-gradient(45deg, transparent 50%, var(--text2) 50%), linear-gradient(135deg, var(--text2) 50%, transparent 50%);background-position:calc(100% - 19px) calc(50% - 2px), calc(100% - 14px) calc(50% - 2px);background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:38px}
+
+/* BOTAO GRANDE */
+.btn-main{
+  width:100%;height:56px;border-radius:14px;border:none;
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:#fff;font-family:inherit;font-weight:700;font-size:16px;letter-spacing:.3px;
+  cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px
+}
+.btn-main:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(193,18,31,0.45)}
+.btn-main:active{transform:translateY(0)}
+.hint{font-size:11px;color:var(--text2);text-align:center;margin-top:10px}
+
+/* DIVISOR */
+.divider{height:1px;background:linear-gradient(90deg, transparent, var(--border), transparent);margin:28px 0}
+
+/* ROLETA */
+.roulette-wrap{display:flex;flex-direction:column;align-items:center}
+.roulette-box{
+  position:relative;width:240px;height:240px;margin:10px 0 18px;
+  background:var(--bg);border-radius:50%;
+  border:2px solid var(--border);
+  box-shadow:0 0 40px rgba(139,0,0,0.25), inset 0 0 30px rgba(0,0,0,0.8)
+}
+#roulette{
+  width:100%;height:100%;border-radius:50%;
+  /* 5 premios */
+  background:conic-gradient(
+    #1a0000 0deg 72deg,
+    #8B0000 72deg 144deg,
+    #4a0000 144deg 216deg,
+    #C1121F 216deg 288deg,
+    #2a0000 288deg 360deg
+  );
+  transition:transform 4s cubic-bezier(0.15,0,0.15,1);
+  position:relative;
+  overflow:hidden;
+}
+#roulette::after{
+  content:'';position:absolute;inset:16px;border-radius:50%;
+  background:var(--card);border:1px solid var(--border)
+}
+.pointer{
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:18px solid var(--red2);
+  filter:drop-shadow(0 0 8px var(--red2));z-index:3
+}
+.roulette-labels{
+  position:absolute;inset:0;z-index:2;pointer-events:none
+}
+.roulette-labels span{
+  position:absolute;left:50%;top:50%;font-size:11px;font-weight:700;color:#fff;
+  text-shadow:0 1px 4px #000;
+}
+.roulette-center{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:56px;height:56px;background:linear-gradient(135deg,var(--red),var(--red2));
+  border-radius:50%;z-index:4;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:13px;box-shadow:0 0 18px var(--red-glow)
+}
+.result-box{
+  margin-top:6px;min-height:64px;text-align:center;
+}
+.result-box b{color:var(--red2);font-size:18px}
+.btn-ghost{
+  margin-top:12px;width:100%;height:48px;border-radius:12px;
+  border:1px solid var(--border);background:transparent;
+  color:var(--text2);font-family:inherit;font-weight:600;cursor:pointer;transition:.2s
+}
+.btn-ghost:hover{border-color:var(--red2);color:#fff}
+
+/* LINKS FOOTER */
+.footer-links{display:flex;gap:10px;margin:18px 0}
+.footer-links a{
+  flex:1;text-align:center;padding:12px;border-radius:12px;
+  font-size:13px;font-weight:600;text-decoration:none;
+  border:1px solid var(--border);color:var(--text2);background:var(--card)
+}
+
+/* TOAST */
+#toast{
+  position:fixed;left:14px;bottom:14px;z-index:99;
+  background:var(--card);border:1px solid var(--border);
+  padding:10px 14px;border-radius:12px;display:flex;gap:10px;align-items:center;
+  transform:translateY(120px);opacity:0;transition:.4s;
+  max-width:280px;box-shadow:0 10px 30px rgba(0,0,0,0.6)
+}
+#toast.show{transform:translateY(0);opacity:1}
+#toast .dot{width:8px;height:8px;background:#00FF88;border-radius:50%;box-shadow:0 0 8px #00FF88;flex-shrink:0}
+#toast p{font-size:12px;color:var(--text2);line-height:1.3}
+#toast p strong{color:#fff;font-weight:600}
+
+@media(min-width:520px){h1{font-size:36px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">NEX <span>PLAYER</span> V5</div>
+    <a class="btn-small" href="https://wa.me/5535991148346" target="_blank" rel="noopener">Suporte</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge"><i></i> Ativação imediata • Sem travamentos</div>
+    <h1>Teste Grátis <em>até 4 Horas</em></h1>
+    <p>Preencha em 10 segundos e receba seu acesso exclusivo agora no WhatsApp.</p>
+  </section>
+
+  <!-- FORM CARD -->
+  <section class="card glow" id="formCard">
+    <div class="card-title">Solicitar meu acesso</div>
+    <div class="card-sub">Escolha o tempo e preencha seus dados.</div>
+
+    <!-- TEMPO -->
+    <div class="field">
+      <label>Tempo de teste</label>
+      <div class="tempo-group">
+        <div class="tempo-radio"><input type="radio" name="tempo" id="t1" value="1h" checked><label for="t1">1h</label></div>
+        <div class="tempo-radio"><input type="radio" name="tempo" id="t2" value="2h"><label for="t2">2h</label></div>
+        <div class="tempo-radio"><input type="radio" name="tempo" id="t3" value="3h"><label for="t3">3h</label></div>
+        <div class="tempo-radio"><input type="radio" name="tempo" id="t4" value="4h"><label for="t4">4h</label></div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Seu nome</label>
+      <input class="input" id="nome" type="text" placeholder="Ex: Carlos Silva" autocomplete="name">
+    </div>
+
+    <div class="field">
+      <label>WhatsApp</label>
+      <input class="input" id="zap" type="tel" placeholder="(35) 9 9999-9999" inputmode="tel">
+    </div>
+
+    <div class="field">
+      <label>Aparelho</label>
+      <select class="input" id="aparelho">
+        <option value="" disabled selected>Selecione</option>
+        <option>TV Box</option>
+        <option>Fire Stick</option>
+        <option>Samsung</option>
+        <option>LG</option>
+        <option>TCL</option>
+        <option>Roku</option>
+        <option>Android</option>
+        <option>iPhone</option>
+      </select>
+    </div>
+
+    <button class="btn-main" id="btnEnviar">Enviar teste →</button>
+    <div class="hint">Ao enviar você será direcionado para nosso WhatsApp oficial</div>
+
+    <div class="footer-links">
+      <a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">Entrar no Grupo</a>
+      <a href="https://wa.me/5535991148346" target="_blank" rel="noopener">Falar com Suporte</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ROLETA -->
+  <section class="card" id="roletaCard">
+    <div class="card-title glow-text">Roleta de Bônus</div>
+    <div class="card-sub">Gire e ganhe até 5 dias extras. 100% grátis.</div>
+
+    <div class="roulette-wrap">
+      <div class="roulette-box">
+        <div class="pointer"></div>
+        <div id="roulette">
+          <!-- labels via CSS posicionados com JS leve -->
+          <div class="roulette-labels" id="labels"></div>
+        </div>
+        <div class="roulette-center">NEX</div>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <span style="color:var(--text2);font-size:13px">Clique em Girar para tentar a sorte</span>
+      </div>
+
+      <button class="btn-main" id="btnGirar" style="margin-top:8px">Girar Roleta</button>
+      <button class="btn-ghost" id="btnResgatar" style="display:none">Resgatar prêmio no WhatsApp</button>
+    </div>
+  </section>
+
+  <p style="text-align:center;color:var(--text2);font-size:11px;margin:30px 0 20px;opacity:.6">NEX PLAYER V5 • Ativação leve e estável • 2025</p>
+
+</main>
+
+<!-- TOAST LEVE -->
+<div id="toast">
+  <div class="dot"></div>
+  <p id="toastText"><strong>Alguém</strong> acabou de ativar</p>
+</div>
+
+<script>
+// NEX PLAYER V5 - JS LEVE, SEM LOOP PESADO
+const $ = s => document.querySelector(s);
+const suporteLink = 'https://wa.me/5535991148346';
+const premios = ['1 DIA EXTRA','2 DIAS EXTRAS','3 DIAS EXTRAS','4 DIAS EXTRAS','5 DIAS EXTRAS'];
+
+// ---- LABELS ROLETA (posicionamento simples) ----
+(function(){
+  const cont = $('#labels');
+  premios.forEach((txt,i)=>{
+    const el = document.createElement('span');
+    const angle = (i*72 + 36) * Math.PI/180; // centro de cada fatia
+    const r = 76;
+    const x = Math.cos(angle) * r;
+    const y = Math.sin(angle) * r;
+    el.textContent = txt.split(' ')[0]+'D';
+    el.style.transform = `translate(-50%,-50%) translate(${x}px,${y}px)`;
+    cont.appendChild(el);
+  });
+})();
+
+// ---- FORM ENVIO ----
+$('#btnEnviar').addEventListener('click', ()=>{
+  const nome = $('#nome').value.trim() || 'Olá';
+  const zap = $('#zap').value.trim();
+  const aparelho = $('#aparelho').value || 'Não informado';
+  const tempo = document.querySelector('input[name="tempo"]:checked')?.value || '4h';
+
+  if(!zap || zap.length < 8){
+    $('#zap').focus();
+    $('#zap').style.borderColor = 'var(--red2)';
+    setTimeout(()=>$('#zap').style.borderColor='',1200);
+    return;
+  }
+
+  const msg = `Olá! Quero meu *TESTE GRÁTIS NEX PLAYER V5*\n\n`+
+              `*Nome:* ${nome}\n`+
+              `*WhatsApp:* ${zap}\n`+
+              `*Aparelho:* ${aparelho}\n`+
+              `*Tempo:* ${tempo}\n\n`+
+              `Pode liberar meu acesso?`;
+
+  window.open(`${suporteLink}?text=${encodeURIComponent(msg)}`,'_blank');
+});
+
+// mascara leve whatsapp (apenas numeros)
+$('#zap').addEventListener('input', e=>{
+  e.target.value = e.target.value.replace(/[^\d\s()\-+]/g,'');
+});
+
+// ---- ROLETA ----
+let girando = false;
+let premioAtual = null;
+let rot = 0;
+
+$('#btnGirar').addEventListener('click', ()=>{
+  if(girando) return;
+  girando = true;
+  $('#btnGirar').textContent = 'Girando...';
+  $('#resultBox').innerHTML = '<span style="color:var(--text2);font-size:13px">Boa sorte!</span>';
+
+  const extra = 1440 + Math.floor(Math.random()*720); // 1440 a 2160
+  const randomPrize = Math.floor(Math.random()*5); // 0-4
+  // Calculo para cair no premio: roleta tem 5 fatias 72deg cada
+  const targetAngle = 360 - (randomPrize*72 + 36); // centraliza
+  rot += extra + (targetAngle - (rot%360) + 360)%360;
+
+  $('#roulette').style.transform = `rotate(${rot}deg)`;
+
+  setTimeout(()=>{
+    premioAtual = premios[randomPrize];
+    $('#resultBox').innerHTML = `Você ganhou <b>${premioAtual}</b>! 🎉<br><span style="color:var(--text2);font-size:12px">Resgate agora no WhatsApp</span>`;
+    $('#btnGirar').textContent = 'Girar novamente';
+    $('#btnResgatar').style.display = 'block';
+    girando = false;
+    // glow forte
+    $('#roulette').parentElement.style.boxShadow = '0 0 60px rgba(193,18,31,0.5), inset 0 0 30px rgba(0,0,0,0.8)';
+  },4000);
+});
+
+$('#btnResgatar').addEventListener('click', ()=>{
+  const msg = `Olá! Girei a roleta no site NEX PLAYER V5 e ganhei *${premioAtual}*!\nQuero resgatar meu prêmio + meu teste grátis.`;
+  window.open(`${suporteLink}?text=${encodeURIComponent(msg)}`,'_blank');
+});
+
+// ---- TOAST LEVE A CADA 12s ----
+const nomes = ['Lucas S.','Ana M.','Rafael T.','Juliana O.','Marcos P.','Fernanda L.','Diego C.','Patricia R.'];
+let toastTimer;
+function showToast(){
+  const n = nomes[Math.floor(Math.random()*nomes.length)];
+  const tempos = ['2 min','4 min','agora','1 min'];
+  $('#toastText').innerHTML = `<strong>${n}</strong> acabou de ganhar ${premios[Math.floor(Math.random()*5)]} • ${tempos[Math.floor(Math.random()*tempos.length)]} atrás`;
+  $('#toast').classList.add('show');
+  setTimeout(()=>$('#toast').classList.remove('show'),3400);
+}
+setTimeout(()=>{
+  showToast();
+  toastTimer = setInterval(showToast,12000);
+},3000);
+
+// pausa toast quando aba inativa (economia)
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden) clearInterval(toastTimer);
+  else toastTimer = setInterval(showToast,12000);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planos - NEX PLAYER V5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET E VARS V5 ===== */
+:root{
+  --bg:#080000;
+  --card:#0D0000;
+  --card-2:#140000;
+  --red:#8B0000;
+  --red2:#C1121F;
+  --red-glow:rgba(193,18,31,.28);
+  --text:#FFFFFF;
+  --text-2:#D0C0C0;
+  --border:rgba(139,0,0,.25);
+  --border-2:rgba(193,18,31,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* glow leve só CSS */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:
+    radial-gradient(700px 400px at 15% 5%, rgba(193,18,31,.14), transparent 70%),
+    radial-gradient(600px 500px at 85% 50%, rgba(139,0,0,.12), transparent 70%);
+  pointer-events:none; z-index:-1;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%); margin:0 auto}
+
+/* ===== HEADER ===== */
+.topbar{
+  position:sticky; top:0; z-index:10;
+  background:rgba(8,0,0,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+.logo{
+  font-weight:800; letter-spacing:.08em; font-size:1.05rem;
+}
+.logo span{color:var(--red2)}
+.nav{display:flex; gap:14px; align-items:center}
+.btn-ghost, .btn-support{
+  font-size:.82rem; font-weight:600; letter-spacing:.02em;
+  padding:9px 16px; border-radius:999px; border:1px solid var(--border);
+  transition:.2s;
+}
+.btn-ghost:hover{border-color:var(--red2); color:var(--text)}
+.btn-support{
+  background:var(--red); border-color:var(--red);
+  box-shadow:0 0 18px var(--red-glow);
+}
+.btn-support:hover{background:var(--red2); box-shadow:0 0 26px var(--red-glow)}
+
+/* ===== HERO ===== */
+.hero{padding:42px 0 18px; text-align:center}
+.hero h1{
+  font-size:clamp(1.9rem,5vw,3rem); font-weight:800; line-height:1.05;
+  letter-spacing:-.02em;
+}
+.hero h1 i{font-style:normal; color:var(--red2); text-shadow:0 0 18px var(--red-glow)}
+.hero p{color:var(--text-2); margin-top:10px; font-size:1rem; font-weight:300}
+
+/* ===== PARTE 1 - PLANOS FIXOS ===== */
+.section-label{
+  font-size:.78rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--red2); font-weight:700; margin-bottom:18px; text-align:center;
+}
+.plans-grid{
+  display:grid; grid-template-columns:1fr; gap:16px;
+}
+@media(min-width:760px){ .plans-grid{grid-template-columns:1fr 1.15fr 1fr; align-items:start} }
+
+.card{
+  background:linear-gradient(180deg,var(--card-2),var(--card));
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px 20px;
+  position:relative;
+  transition:.22s;
+}
+.card:hover{border-color:var(--border-2); box-shadow:0 0 0 1px var(--border-2),0 12px 40px rgba(0,0,0,.5),0 0 30px var(--red-glow)}
+.card.featured{
+  border-color:var(--red2);
+  box-shadow:0 0 0 1px rgba(193,18,31,.35),0 0 40px var(--red-glow);
+}
+.badge{
+  position:absolute; top:-11px; left:50%; transform:translateX(-50%);
+  background:var(--red2); color:#fff;
+  font-size:.68rem; font-weight:800; letter-spacing:.14em;
+  padding:6px 14px; border-radius:999px;
+  box-shadow:0 0 18px var(--red-glow); white-space:nowrap;
+}
+.card-head{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px}
+.card-name{font-size:1.15rem; font-weight:700}
+.card-telas{font-size:.78rem; color:var(--text-2); background:rgba(255,255,255,.06); border:1px solid var(--border); padding:4px 9px; border-radius:999px}
+.price{display:flex; align-items:baseline; gap:2px; margin:14px 0 16px}
+.price b{font-size:2.1rem; font-weight:800; line-height:1}
+.price span{font-size:.95rem; color:var(--text-2)}
+.price small{font-size:.82rem; color:var(--text-2); margin-left:4px}
+.benef-list{list-style:none; display:grid; gap:9px; margin-bottom:20px}
+.benef-list li{
+  display:flex; gap:9px; align-items:flex-start;
+  font-size:.9rem; color:var(--text-2); line-height:1.35;
+}
+.benef-list li::before{
+  content:"✓"; color:var(--red2); font-weight:800; font-size:.86rem; margin-top:1px;
+  width:18px; height:18px; display:grid; place-items:center;
+  background:rgba(193,18,31,.13); border-radius:50%; flex:0 0 18px;
+}
+.btn-primary{
+  width:100%; display:flex; justify-content:center; align-items:center;
+  gap:8px; padding:13px 18px; border-radius:14px;
+  background:linear-gradient(180deg,var(--red2),var(--red));
+  color:#fff; font-weight:700; font-size:.95rem;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 22px var(--red-glow);
+  transition:.2s;
+}
+.btn-primary:hover{filter:brightness(1.1); box-shadow:0 0 32px var(--red-glow); transform:translateY(-1px)}
+.btn-primary:active{transform:translateY(0)}
+.card.featured .btn-primary{background:linear-gradient(180deg,#E11D2D,var(--red2))}
+
+/* ===== DIVISOR ===== */
+.divider{
+  margin:54px 0 46px; height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),rgba(193,18,31,.35),var(--border),transparent);
+  position:relative;
+}
+.divider::after{
+  content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:8px; height:8px; background:var(--red2); border-radius:50%;
+  box-shadow:0 0 12px var(--red2);
+}
+
+/* ===== PARTE 2 - MONTADOR ===== */
+.builder{
+  background:linear-gradient(180deg,rgba(20,0,0,.9),var(--card));
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:24px 20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+@media(min-width:900px){ .builder{padding:28px 28px} }
+.builder-head{
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; align-items:center;
+  margin-bottom:22px;
+}
+.builder-head h2{font-size:clamp(1.4rem,3.5vw,1.9rem); font-weight:800}
+.builder-head p{color:var(--text-2); font-size:.92rem; max-width:36ch}
+.builder-grid{
+  display:grid; gap:14px;
+}
+@media(min-width:760px){ .builder-grid{grid-template-columns:1fr 1fr 1fr} }
+
+.field label{
+  display:block; font-size:.78rem; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--text-2); margin-bottom:8px;
+}
+.select-wrap{position:relative}
+.select-wrap select{
+  width:100%; appearance:none;
+  background:rgba(0,0,0,.4);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:13px 38px 13px 14px;
+  border-radius:13px; font-family:inherit; font-size:.95rem; font-weight:500;
+  outline:none; transition:.18s;
+}
+.select-wrap select:focus{border-color:var(--red2); box-shadow:0 0 0 3px rgba(193,18,31,.18)}
+.select-wrap::after{
+  content:"▾"; position:absolute; right:13px; top:50%; transform:translateY(-50%);
+  color:var(--text-2); pointer-events:none;
+}
+.select-wrap select option{background:#140000; color:#fff}
+
+/* resultado */
+.result{
+  margin-top:22px;
+  display:grid; gap:18px;
+  background:rgba(0,0,0,.35);
+  border:1px dashed rgba(193,18,31,.35);
+  border-radius:18px; padding:18px;
+}
+@media(min-width:760px){ .result{grid-template-columns:1.2fr .8fr; align-items:center} }
+.total-label{font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-2); font-weight:700}
+.total-price{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-top:6px}
+.total-price b{font-size:clamp(1.9rem,4vw,2.6rem); font-weight:800; color:#fff}
+.total-price b small{font-weight:700; font-size:1rem}
+.total-price em{font-style:normal; color:var(--text-2); font-size:.86rem}
+.breakdown{font-size:.82rem; color:var(--text-2); line-height:1.5; margin-top:8px}
+.breakdown span{color:var(--text)}
+.btn-build{
+  display:flex; justify-content:center; align-items:center; gap:10px;
+  padding:15px 22px; border-radius:14px;
+  background:#fff; color:#080000; font-weight:800; font-size:1rem;
+  border:none; cursor:pointer; transition:.2s;
+  box-shadow:0 0 30px rgba(255,255,255,.12);
+}
+.btn-build:hover{transform:translateY(-1px); box-shadow:0 8px 30px rgba(255,255,255,.18)}
+.btn-group{display:flex; gap:10px; margin-top:10px}
+.btn-ghost-sm{
+  flex:1; padding:11px; border-radius:12px;
+  border:1px solid var(--border); background:transparent;
+  color:var(--text-2); font-weight:600; font-size:.84rem; cursor:pointer;
+}
+
+/* footer */
+.footer{
+  margin-top:46px; padding:24px 0 46px;
+  border-top:1px solid var(--border);
+  text-align:center; color:var(--text-2); font-size:.84rem;
+}
+.footer a{color:var(--text); text-decoration:underline; text-decoration-color:var(--red2)}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="logo">NEX <span>PLAYER</span> V5</div>
+    <nav class="nav">
+      <a class="btn-ghost" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">Grupo</a>
+      <a class="btn-support" href="https://wa.me/5535991148346" target="_blank" rel="noopener">Suporte</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Escolha seu plano <br><i>sem travar</i></h1>
+    <p>Ativação rápida, qualidade estável, suporte humano no WhatsApp.</p>
+  </section>
+
+  <!-- PARTE 1 : 3 CARDS FIXOS -->
+  <p class="section-label">Planos Fixos</p>
+  <section class="plans-grid" id="planos-fixos">
+
+    <!-- Básico -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-name">Básico</div>
+        <div class="card-telas">1 tela</div>
+      </div>
+      <div class="price"><b>R$14,90</b><small>/mês</small></div>
+      <ul class="benef-list">
+        <li>1 tela simultânea</li>
+        <li>Qualidade FHD estável</li>
+        <li>Filmes, séries e canais</li>
+        <li>Suporte no WhatsApp</li>
+        <li>Ativação em minutos</li>
+      </ul>
+      <a class="btn-primary" data-plano="Básico - R$14,90 - 1 tela / mês"
+         href="https://wa.me/5535991148346?text=Ol%C3%A1%21%20Quero%20o%20plano%20B%C3%A1sico%20R%24%2014%2C90%20-%201%20tela%20por%20m%C3%AAs%20%7C%20NEX%20PLAYER%20V5" target="_blank" rel="noopener">
+         Assinar Básico
+      </a>
+    </article>
+
+    <!-- Trimestral - MAIS VENDIDO -->
+    <article class="card featured">
+      <div class="badge">★ MAIS VENDIDO</div>
+      <div class="card-head">
+        <div class="card-name">Trimestral</div>
+        <div class="card-telas">2 telas</div>
+      </div>
+      <div class="price"><b>R$44,90</b><span> / 3 meses</span></div>
+      <ul class="benef-list">
+        <li>2 telas simultâneas</li>
+        <li>Qualidade FHD + HD</li>
+        <li>Conteúdo completo atualizado</li>
+        <li>Suporte prioritário</li>
+        <li>Economia no trimestre</li>
+      </ul>
+      <a class="btn-primary" data-plano="Trimestral - R$44,90 - 2 telas / 3 meses"
+         href="https://wa.me/5535991148346?text=Ol%C3%A1%21%20Quero%20o%20plano%20Trimestral%20R%24%2044%2C90%20-%202%20telas%20por%203%20meses%20%7C%20NEX%20PLAYER%20V5" target="_blank" rel="noopener">
+         Assinar Trimestral
+      </a>
+    </article>
+
+    <!-- Família -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-name">Família</div>
+        <div class="card-telas">4 telas</div>
+      </div>
+      <div class="price"><b>R$50,90</b><small>/mês</small></div>
+      <ul class="benef-list">
+        <li>4 telas simultâneas</li>
+        <li>Qualidade máxima liberada</li>
+        <li>Ideal para casa toda</li>
+        <li>Suporte dedicado</li>
+        <li>Estabilidade premium</li>
+      </ul>
+      <a class="btn-primary" data-plano="Família - R$50,90 - 4 telas / mês"
+         href="https://wa.me/5535991148346?text=Ol%C3%A1%21%20Quero%20o%20plano%20Fam%C3%ADlia%20R%24%2050%2C90%20-%204%20telas%20por%20m%C3%AAs%20%7C%20NEX%20PLAYER%20V5" target="_blank" rel="noopener">
+         Assinar Família
+      </a>
+    </article>
+  </section>
+
+  <!-- DIVISOR -->
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- PARTE 2 : MONTADOR -->
+  <p class="section-label">Personalizado</p>
+  <section class="builder" id="builder">
+    <div class="builder-head">
+      <h2>Monte seu plano</h2>
+      <p>Escolha meses, telas e qualidade. Preço calcula na hora, sem pegadinha.</p>
+    </div>
+
+    <div class="builder-grid">
+      <!-- meses -->
+      <div class="field">
+        <label for="meses">Meses</label>
+        <div class="select-wrap">
+          <select id="meses">
+            <option value="1">1 mês - sem desconto</option>
+            <option value="3">3 meses - economize</option>
+            <option value="6">6 meses - melhor preço</option>
+            <option value="12">12 meses - máximo desconto</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- telas -->
+      <div class="field">
+        <label for="telas">Telas simultâneas</label>
+        <div class="select-wrap">
+          <select id="telas">
+            <option value="1">1 tela</option>
+            <option value="2" selected>2 telas</option>
+            <option value="3">3 telas</option>
+            <option value="4">4 telas</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- qualidade -->
+      <div class="field">
+        <label for="qualidade">Qualidade</label>
+        <div class="select-wrap">
+          <select id="qualidade">
+            <option value="sd">SD</option>
+            <option value="fhd" selected>FHD</option>
+            <option value="hd">HD</option>
+            <option value="shd">SHD</option>
+            <option value="4k">4K</option>
+            <option value="all">Todas (SD + FHD + HD + SHD + 4K)</option>
+          </select>
+        </div>
+      </div>
+      <!-- adulto -->
+      <div class="field">
+        <label for="adulto">Conteúdo</label>
+        <div class="select-wrap">
+          <select id="adulto">
+            <option value="sem">Sem adulto</option>
+            <option value="com" selected>Com adulto</option>
+          </select>
+        </div>
+        <small style="color:var(--text-2);font-size:.76rem;margin-top:6px;display:block">Vale para qualquer qualidade: HD, FHD, SHD, 4K etc.</small>
+      </div>
+    </div>
+    <!-- form mesmo do teste -->
+    <div class="builder-grid" style="margin-top:18px">
+      <div class="field"><label for="nome">Seu nome</label><input id="nome" placeholder="Seu nome" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.05);color:#fff"></div>
+      <div class="field"><label for="zap">WhatsApp</label><input id="zap" placeholder="(00) 00000-0000" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.05);color:#fff"></div>
+    </div>
+
+    <!-- resultado -->
+    <div class="result">
+      <div>
+        <div class="total-label">Total do seu plano</div>
+        <div class="total-price">
+          <b id="totalPrice">R$ 24,90</b>
+          <em id="totalSub">/ 1 mês</em>
+        </div>
+        <div class="breakdown" id="breakdown">
+          base R$14,90 + telas + qualidade • desconto aplicado nos meses
+        </div>
+        <div class="btn-group">
+          <button class="btn-ghost-sm" id="btnCopy">Copiar resumo</button>
+          <a class="btn-ghost-sm" style="text-align:center" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">Entrar no Grupo</a>
+        </div>
+      </div>
+      <div>
+        <button class="btn-build" id="btnBuild">💬 Montar meu plano</button>
+        <p style="margin-top:10px;color:var(--text-2);font-size:.8rem;line-height:1.4">Vai abrir o WhatsApp com os detalhes do plano que você montou.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    NEX PLAYER V5 • Suporte <a href="https://wa.me/5535991148346" target="_blank">wa.me/5535991148346</a> •
+    <a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Grupo Oficial</a>
+  </footer>
+</main>
+
+<script>
+// ===== NEX PLAYER V5 - LÓGICA LEVE =====
+const $ = (id)=>document.getElementById(id);
+const mesesEl = $('meses');
+const telasEl = $('telas');
+const qualEl = $('qualidade');
+const adultoEl = $('adulto');
+const nomeEl = $('nome');
+const zapEl = $('zap');
+const totalEl = $('totalPrice');
+const subEl = $('totalSub');
+const breakEl = $('breakdown');
+
+const BASE = 14.90;
+const TELA_EXTRA = 10;
+const QUAL_MAP = { sd:0, fhd:2, hd:5, shd:8, '4k':15, all:18 };
+const QUAL_LABEL = { sd:'SD', fhd:'FHD', hd:'HD', shd:'SHD', '4k':'4K', all:'Todas (SD/FHD/HD/SHD/4K)' };
+const MULT = { 1:1, 3:2.8, 6:5, 12:9 };
+
+function calc(){
+  const m = parseInt(mesesEl.value,10);
+  const t = parseInt(telasEl.value,10);
+  const q = qualEl.value;
+  const adulto = adultoEl.value;
+
+  const extraTelas = (t-1)*TELA_EXTRA;
+  const extraQ = QUAL_MAP[q] || 0;
+  const extraAdulto = adulto==='com' ? 3 : 0;
+  const mensal = BASE + extraTelas + extraQ + extraAdulto;
+  const mult = MULT[m] || 1;
+  const total = mensal * mult;
+
+  const mensalFmt = mensal.toLocaleString('pt-BR',{minimumFractionDigits:2});
+  const totalFmt = total.toLocaleString('pt-BR',{minimumFractionDigits:2, maximumFractionDigits:2});
+
+  totalEl.innerHTML = `R$ ${totalFmt} <small style="font-size:.6em;font-weight:600;color:var(--text-2)">/ ${m} ${m===1?'mês':'meses'}</small>`;
+  subEl.textContent = `mensal ~ R$${mensalFmt} × ${mult}x (${m} ${m===1?'mês':'meses'})`;
+  breakEl.innerHTML = `Base <span>R$${BASE.toFixed(2)}</span> + Telas <span>${t} (${t===1?'sem extra':'+R$'+extraTelas.toFixed(2)})</span> + Qualidade <span>${QUAL_LABEL[q]} ${extraQ?'(+R$'+extraQ+')':''}</span> + ${adulto==='com'?'C/ adulto (+R$3)':'S/ adulto'} • Fator meses: <span>${mult}x</span>`;
+
+  return {m,t,q,adulto,mensal,mult,total,totalFmt,mensalFmt}
+}
+function buildWhatsLink(){
+  const {m,t,q,adulto,totalFmt,mensalFmt} = calc();
+  const nome = nomeEl.value.trim() || 'Cliente';
+  const zap = zapEl.value.trim() || '';
+  const adultoTxt = adulto==='com' ? '🔞 Com adulto' : '✅ Sem adulto';
+  const qualTxt = QUAL_LABEL[q];
+  const telasTxt = `${t} ${t==1?'tela simultânea':'telas simultâneas'}`;
+  const mesesTxt = `${m} ${m==1?'mês':'meses'}`;
+  // Formatação bonita para WhatsApp com *negrito* _itálico_ e emojis
+  const msg = `🔥 *NOVO PEDIDO - NEX PLAYER* 🔥
+
+👤 *Cliente:* ${nome}
+📱 *WhatsApp:* ${zap || 'Não informado'}
+
+━━━━━━━━━━━━━━━
+📦 *PLANO PERSONALIZADO*
+━━━━━━━━━━━━━━━
+📅 *Duração:* ${mesesTxt}
+📺 *Telas:* ${telasTxt}
+🎬 *Qualidade:* *${qualTxt}*
+${adultoTxt}
+
+💰 *Valor mensal:* R$ ${mensalFmt}
+💵 *TOTAL:* *R$ ${totalFmt}* _(${mesesTxt})_
+
+━━━━━━━━━━━━━━━
+✅ _Quero ativar agora!_
+⚡️ _Me chama no suporte por favor!_`;
+
+  return `https://wa.me/5535991148346?text=${encodeURIComponent(msg)}`;
+}
+let lastCalc = calc();
+[mesesEl,telasEl,qualEl,adultoEl].forEach(el=>el.addEventListener('change',()=>{ lastCalc = calc(); }));
+
+lastCalc = calc();
+
+$('btnBuild').addEventListener('click',()=>{
+  if(!nomeEl.value.trim()){ nomeEl.focus(); nomeEl.style.borderColor='var(--red2)'; return; }
+  const link = buildWhatsLink();
+  window.open(link,'_blank');
+});
+$('btnCopy').addEventListener('click',async()=>{
+  const {m,t,q,adulto,totalFmt} = lastCalc;
+  const adultoTxt = adulto==='com' ? 'C/ adulto' : 'S/ adulto';
+  const txt = `NEX PLAYER V5 - Meu plano: ${m} meses | ${t} telas | ${QUAL_LABEL[q]} ${adultoTxt} | Total R$ ${totalFmt}`;
+  try{ await navigator.clipboard.writeText(txt); $('btnCopy').textContent='Copiado!'; setTimeout(()=>$('btnCopy').textContent='Copiar resumo',1400);}catch(e){ alert(txt); }
+});
+</script>
+</body>
+</html>

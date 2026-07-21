@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NEX PLAYER - Sua diversão em um só lugar</title>
+  <meta name="description" content="NEX PLAYER - Filmes, séries e futebol em um só lugar. Qualidade máxima, sem travamentos." />
+  <!-- Fonte Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="NEX PLAYER">
+        <div class="logo-mark">N</div>
+        <b>NEX <span>PLAYER</span></b>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SIDE MENU -->
+  <div class="side-backdrop" id="sideBackdrop"></div>
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-head">
+      <b>NEX PLAYER</b>
+      <button id="closeMenu" class="hamburger active" style="width:32px;height:32px"><span></span></button>
+    </div>
+    <nav class="side-links">
+      <a href="index.html" class="active">Início</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="planos.html">Planos</a>
+      <a href="teste.html">Teste Grátis</a>
+      <a href="missoes.html">Missões</a>
+      <a href="tutoriais.html">Tutoriais</a>
+    </nav>
+    <div class="side-cta">
+      <a class="btn btn-primary" href="planos.html">Ver Planos</a>
+      <a class="btn btn-ghost" href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener">Nosso Grupo</a>
+      <a class="btn btn-outline" href="https://wa.me/5535991148346" target="_blank" rel="noopener">Suporte 24h</a>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <span class="badge"><i></i> NOVO • CATÁLOGO ATUALIZADO DIARIAMENTE</span>
+      <h1>Sua diversão em um <span>só lugar</span></h1>
+      <p>Filmes, séries e futebol com qualidade máxima, estabilidade e suporte real. Sem dor de cabeça, só dar play.</p>
+      <div class="hero-actions">
+        <a href="planos.html" class="btn btn-primary">Ver Planos</a>
+        <a href="teste.html" class="btn btn-ghost">Teste Grátis 4h</a>
+        <a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" rel="noopener" class="btn btn-outline">Nosso Grupo</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divisor"></div>
+
+  <!-- CATALOGO PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>O que você vai assistir</h2>
+        <a href="catalogo.html" class="link-arrow">Ver completo →</a>
+      </div>
+
+      <!-- Tabs simples -->
+      <div class="tabs" role="tablist" style="margin-bottom:18px">
+        <button class="tab active" data-tab="filmes" role="tab">Filmes</button>
+        <button class="tab" data-tab="futebol" role="tab">Futebol</button>
+        <button class="tab" data-tab="series" role="tab">Séries</button>
+      </div>
+
+      <!-- Grid Filmes -->
+      <div class="grid" data-tab-grid="filmes">
+        <!-- 6 capas picsum com overlay -->
+        <div>
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/nex1/300/450" alt="Capa filme" loading="lazy" />
+            <div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div>
+          </div><div class="card-title">Ação Extrema</div>
+        </div>
+        <div>
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/nex2/300/450" alt="Capa filme" loading="lazy" />
+            <div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div>
+          </div><div class="card-title">Ficção Futuro</div>
+        </div>
+        <div>
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/nex3/300/450" alt="Capa filme" loading="lazy" />
+            <div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div>
+          </div><div class="card-title">Drama Real</div>
+        </div>
+        <div>
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/nex4/300/450" alt="Capa filme" loading="lazy" />
+            <div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div>
+          </div><div class="card-title">Comédia Top</div>
+        </div>
+        <div>
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/nex5/300/450" alt="Capa filme" loading="lazy" />
+            <div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div>
+          </div><div class="card-title">Aventura 2025</div>
+        </div>
+        <div>
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/nex6/300/450" alt="Capa filme" loading="lazy" />
+            <div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div>
+          </div><div class="card-title">Suspense Total</div>
+        </div>
+      </div>
+
+      <!-- Grid Futebol -->
+      <div class="grid" data-tab-grid="futebol" style="display:none">
+        <div><div class="card-media"><img src="https://picsum.photos/seed/fut1/300/450" alt="Futebol" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Champions Ao Vivo</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/fut2/300/450" alt="Futebol" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Brasileirão 2025</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/fut3/300/450" alt="Futebol" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Premier League</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/fut4/300/450" alt="Futebol" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">La Liga</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/fut5/300/450" alt="Futebol" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Libertadores</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/fut6/300/450" alt="Futebol" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Brasileirão Feminino</div></div>
+      </div>
+
+      <!-- Grid Séries -->
+      <div class="grid" data-tab-grid="series" style="display:none">
+        <div><div class="card-media"><img src="https://picsum.photos/seed/ser1/300/450" alt="Série" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Breaking Saga</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/ser2/300/450" alt="Série" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Reino Secreto</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/ser3/300/450" alt="Série" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Detetives</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/ser4/300/450" alt="Série" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Futuro Negro</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/ser5/300/450" alt="Série" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Casa de Heróis</div></div>
+        <div><div class="card-media"><img src="https://picsum.photos/seed/ser6/300/450" alt="Série" loading="lazy"/><div class="card-overlay"><a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank" class="overlay-btn">Quero assistir</a></div></div><div class="card-title">Mistérios</div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divisor"></div>
+
+  <!-- POR QUE ESCOLHER -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Por que escolher a NEX?</h2></div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <h3>Sem travamentos</h3>
+          <p>Servidores otimizados com tecnologia anti-buffer. Você dá play e assiste direto, sem carregar.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🎬</div>
+          <h3>Catálogo gigante atualizado</h3>
+          <p>Mais de 50 mil conteúdos entre filmes, séries e todos os jogos de futebol ao vivo em 4K.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💬</div>
+          <h3>Suporte humano 24h</h3>
+          <p>Nada de robô. Fala direto com a gente no WhatsApp e resolve na hora, qualquer dia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divisor"></div>
+
+  <!-- PLANOS PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Planos que cabem no seu bolso</h2>
+        <a href="planos.html" class="link-arrow">Ver todos →</a>
+      </div>
+
+      <div class="planos-grid">
+        <!-- Básico -->
+        <div class="plano">
+          <h3>Básico</h3>
+          <div class="plano-price">R$ 14,90 <small>/ mês • 1 tela</small></div>
+          <ul>
+            <li>Qualidade Full HD e 4K</li>
+            <li>Filmes, Séries e Futebol</li>
+            <li>Funciona em TV, Celular e PC</li>
+            <li>Suporte 24h</li>
+          </ul>
+          <a href="planos.html" class="btn btn-ghost" style="margin-top:auto">Escolher plano</a>
+        </div>
+
+        <!-- Mais vendido -->
+        <div class="plano featured">
+          <span class="plano-badge">MAIS VENDIDO</span>
+          <h3>Trimestral</h3>
+          <div class="plano-price">R$ 44,90 <small>/ 3 meses • 2 telas</small></div>
+          <ul>
+            <li>Tudo do Básico + 2 telas simultâneas</li>
+            <li>Economia de 25%</li>
+            <li>Estabilidade máxima garantida</li>
+            <li>Ativação imediata</li>
+          </ul>
+          <a href="planos.html" class="btn btn-primary" style="margin-top:auto">Escolher plano</a>
+        </div>
+
+        <!-- Família -->
+        <div class="plano">
+          <h3>Família</h3>
+          <div class="plano-price">R$ 50,90 <small>/ mês • 4 telas</small></div>
+          <ul>
+            <li>4 telas simultâneas</li>
+            <li>Ideal para família toda</li>
+            <li>Perfis independentes</li>
+            <li>Suporte prioritário</li>
+          </ul>
+          <a href="planos.html" class="btn btn-ghost" style="margin-top:auto">Escolher plano</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divisor"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="logo"><div class="logo-mark">N</div><b>NEX <span style="color:var(--red2)">PLAYER</span></b></div>
+      <div class="footer-links">
+        <a href="index.html">Início</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="planos.html">Planos</a>
+        <a href="teste.html">Teste Grátis</a>
+        <a href="https://chat.whatsapp.com/EGGDGtcvvYp40EY1rYvP28" target="_blank">Nosso Grupo</a>
+        <a href="https://wa.me/5535991148346" target="_blank">Suporte</a>
+      </div>
+      <div class="footer-copy">© 2025 NEX PLAYER. Todos os direitos reservados. Sua diversão em um só lugar.</div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
