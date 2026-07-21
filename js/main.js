@@ -1,6 +1,0 @@
-
-const toggle=document.querySelector('.mobile-toggle'); const links=document.querySelector('.nav-links');
-if(toggle){toggle.addEventListener('click',()=>links.classList.toggle('open'))}
-document.querySelectorAll('[data-scroll]').forEach(el=>{el.addEventListener('click',e=>{e.preventDefault();document.querySelector(el.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})})
-// particles hero
-const canvas=document.getElementById('particles'); if(canvas){const ctx=canvas.getContext('2d');let w,h,pts=[];function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight}resize();for(let i=0;i<60;i++)pts.push({x:Math.random()*500,y:Math.random()*500,vx:(Math.random()-0.5)*0.5,vy:(Math.random()-0.5)*0.5});function draw(){ctx.clearRect(0,0,w,h);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.fillStyle='rgba(0,209,255,0.6)';ctx.beginPath();ctx.arc(p.x,p.y,1.5,0,Math.PI*2);ctx.fill();});pts.forEach((a,i)=>{pts.slice(i+1).forEach(b=>{let d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){ctx.strokeStyle=`rgba(0,209,255,${0.15*(1-d/120)})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}})});requestAnimationFrame(draw)}draw();window.addEventListener('resize',resize)}
