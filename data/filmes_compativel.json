@@ -1,0 +1,74 @@
+[
+  {
+    "nome": "Operação Fronteira",
+    "capa": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "ano": "2024",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Cidade Sombria",
+    "capa": "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHazHd.jpg",
+    "ano": "2023",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Horizonte Perdido",
+    "capa": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "ano": "2024",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Legado de Fogo",
+    "capa": "https://image.tmdb.org/t/p/w500/etj8E2o0Bud0HkONVQPjyCkIvpv.jpg",
+    "ano": "2022",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Noite Sem Fim",
+    "capa": "https://image.tmdb.org/t/p/w500/fiVW06jE7z9YnO4trhaMEdclSi.jpg",
+    "ano": "2024",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Operação Tempestade",
+    "capa": "https://image.tmdb.org/t/p/w500/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg",
+    "ano": "2023",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "O Último Código",
+    "capa": "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfR.jpg",
+    "ano": "2024",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Fronteira Final",
+    "capa": "https://image.tmdb.org/t/p/w500/oSeM8FrZ0z7T1866rLraWajXoy.jpg",
+    "ano": "2023",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Vingança Silenciosa",
+    "capa": "https://image.tmdb.org/t/p/w500/iADOJ8Zymht2JPMoy3R7xceZprL.jpg",
+    "ano": "2024",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Ecos do Amanhã",
+    "capa": "https://image.tmdb.org/t/p/w500/gKkl1xYHdxY12aiyMOQnTW3yR.jpg",
+    "ano": "2023",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Sob a Mira",
+    "capa": "https://image.tmdb.org/t/p/w500/7lTNXOyEwQbc4oGSr8RzzVzyX.jpg",
+    "ano": "2024",
+    "tipo": "filmes"
+  },
+  {
+    "nome": "Linha Vermelha",
+    "capa": "https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
+    "ano": "2022",
+    "tipo": "filmes"
+  }
+]

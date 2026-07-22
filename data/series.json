@@ -1,0 +1,50 @@
+[
+  {
+    "nome": "The Last of Us",
+    "capa": "https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg",
+    "ano": "2023",
+    "tipo": "series"
+  },
+  {
+    "nome": "A Casa do Dragão",
+    "capa": "https://image.tmdb.org/t/p/w500/etj8E2o0Bud0HkONVQPjyCkIvpv.jpg",
+    "ano": "2024",
+    "tipo": "series"
+  },
+  {
+    "nome": "The Boys",
+    "capa": "https://image.tmdb.org/t/p/w500/2zmTngn1tYC1AvfnrFLhxeD82hz.jpg",
+    "ano": "2024",
+    "tipo": "series"
+  },
+  {
+    "nome": "La Casa de Papel",
+    "capa": "https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+    "ano": "2021",
+    "tipo": "series"
+  },
+  {
+    "nome": "Stranger Things",
+    "capa": "https://image.tmdb.org/t/p/w500/9Wv5QaQZ9fcBNl14NgKpo2V9qFI.jpg",
+    "ano": "2022",
+    "tipo": "series"
+  },
+  {
+    "nome": "The Witcher",
+    "capa": "https://image.tmdb.org/t/p/w500/7vjaCdMw15FEbXyLQTVa04URsPm.jpg",
+    "ano": "2023",
+    "tipo": "series"
+  },
+  {
+    "nome": "Império Oculto",
+    "capa": "https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg",
+    "ano": "2024",
+    "tipo": "series"
+  },
+  {
+    "nome": "Código Negro",
+    "capa": "https://image.tmdb.org/t/p/w500/5YZbUmjbMa3ClvSW1Wj3Elry1L.jpg",
+    "ano": "2023",
+    "tipo": "series"
+  }
+]
