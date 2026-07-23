@@ -25,19 +25,19 @@
   },
   {
     "nome": "John Wick 4: Baba Yaga",
-    "capa": "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHazHd.jpg",
+    "capa": "imagens/john.jpg",
     "ano": "2023",
     "tipo": "filmes"
   },
   {
     "nome": "Velozes e Furiosos 10",
-    "capa": "https://image.tmdb.org/t/p/w500/fiVW06jE7z9YnO4trhaMEdclSi.jpg",
+    "capa": "imagens/velozes.jpg",
     "ano": "2023",
     "tipo": "filmes"
   },
   {
     "nome": "Aquaman 2: O Reino Perdido",
-    "capa": "https://image.tmdb.org/t/p/w500/7lTNXOyEwQbc4oGSr8RzzVzyX.jpg",
+    "capa": "imagens/aquaman.jpg",
     "ano": "2023",
     "tipo": "filmes"
   },
@@ -49,13 +49,13 @@
   },
   {
     "nome": "Bad Boys: Até o Fim",
-    "capa": "https://image.tmdb.org/t/p/w500/oSeM8FrZ0z7T1866rLraWajXoy.jpg",
+    "capa": "imagens/bad.jpg",
     "ano": "2024",
     "tipo": "filmes"
   },
   {
     "nome": "Planeta dos Macacos: O Reinado",
-    "capa": "https://image.tmdb.org/t/p/w500/gKkl1xYHdxY12aiyMOQnTW3yR.jpg",
+    "capa": "imagens/planeta.jpg",
     "ano": "2024",
     "tipo": "filmes"
   },
@@ -67,7 +67,7 @@
   },
   {
     "nome": "Moana 2",
-    "capa": "https://image.tmdb.org/t/p/w500/aLVkiINlIeCkcZIzb7XHzPYgO6.jpg",
+    "capa": "imagens/moana.jpg",
     "ano": "2024",
     "tipo": "filmes"
   }
