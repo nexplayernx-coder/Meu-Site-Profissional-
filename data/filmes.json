@@ -7,7 +7,7 @@
   },
   {
     "nome": "Deadpool & Wolverine",
-    "capa": "imagens/oprotetor.jpg",
+    "capa": "imagens/deadpool.jpg",
     "ano": "2024",
     "tipo": "filmes"
   },
@@ -61,7 +61,7 @@
   },
   {
     "nome": "Furiosa: Uma Saga Mad Max",
-    "capa": "https://image.tmdb.org/t/p/w500/iADOJ8Zymht2JPMoy3R7xceZprL.jpg",
+    "capa": "imagens/furiosa.jpg",
     "ano": "2024",
     "tipo": "filmes"
   },
